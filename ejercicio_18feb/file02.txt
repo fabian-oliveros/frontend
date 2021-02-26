@@ -1,0 +1,3 @@
+clase dia de hoy 
+CertUtil: No se ha encontrado el objeto.
+295a96050c828417dffd749748d84913b25a1d65c56413f32259bdee85d5634b
