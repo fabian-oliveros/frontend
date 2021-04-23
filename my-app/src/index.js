@@ -1,108 +1,77 @@
-//variable y constantes 
-console.log('Alcanse de variables:');
-
-
-var variableGlobal = 'Variable de alcanse Global: ';
-const varConstante = 'constante  durante ejecucion';
-let varLetLocal = 'ABC';
-let varLetNUMERO = 1112;
-
-console.log('variable global 1.' + variableGlobal);
-console.log('constante = ' + varLetLocal);
-
-
-
-{
-    variableGlobal = 'otro valor';
-    console.log('variable global 2.' + variableGlobal);
-    let varLetLocal = 'xyz';
-    console.log('letlocal:' + varLetLocal);
-
-
-}
-
-let evalucionif = true;
-if (evalucionif) {
-    console.log('dentro del IF');
-    let numY = 11;
-    let numX = 76;
-
-    console.log('opreracion * = ' + (numX * numY));
-} else {
-    console.log('estamos en el else');
-}
-
-
-console.log('+----------------selector---------------+');
-let letKey = 2;
-switch (letKey) {
-
-    case 1:
-        console.log('caso para 1');
-        break;
-    case 2:
-        console.log('caso para 2');
-        break;
-    case 3:
-        console.log('caso para 3');
-        break;
-
-    default:
-        console.log('valor no determinado ');
-        break;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-console.log('+----------------BUCLES---------------+');
-let limiteBucle = 10;
-let contador = 0;
-
-console.log('+Bucle: do while:');
-do {
-    contador++;
-    console.log('contador:' + contador);
-
-} while (contador < limiteBucle);
-
-console.log('+Bucle: do while:');
-let letCondicion = true;
-let acumulado=0;
-let cont = 0;
-
-while (letCondicion) {
-    cont++;
-    console.log('salida contador  ' + cont);
-    let letRandom = Math.random() * 10;
-    console.log('NUMERO RAMDOMICO: ' + letRandom);
-    if (letRandom > 8) {
-        letCondicion = false;
-        console.log('salida de bucle ' + letCondicion);
+let carro = {
+    estadoActivoMotor: false,
+    carroOn: 'Encendiendo',
+    capacidadTanque: 3,
+    estadoTanque: 0,
+    tamanRin: 15,
+    distanciaRin: 0,
+    vel: 0,
+    kmDistancia: 10,
+    encender() {
+        if (this.estadoActivoMotor == true) {
+            console.log('El carro está encendido');
+        } else {
+            this.verificarCantCombustible();
+        }
+    },
+    verificarCantCombustible() {
+        console.log(this.estadoTanque);
+        if (this.estadoTanque >= 2) {
+            console.log(this.estadoTanque);
+            this.estadoActivoMotor = true;
+            console.log(`El carro está ${this.carroOn}`);
+        } else {
+           
+            console.log(`Litros de Combustible: ${this.estadoTanque}`);
+            if (this.estadoTanque >= 2) {
+                console.log(`El carro está encendiendo`);
+            } else {
+                this.estadoTanque = Math.round(Math.random() * 30);
+                console.log(`Se ha tanqueado el carro con: ${this.estadoTanque} ltrs`);
+                console.log(this.estadoTanque);
+                if (this.estadoTanque < 2) {
+                    console.log(`El carro está apagado`);
+                    this.verificarCantCombustible();
+                } else {
+                    console.log(`El carro está encendiendo`);
+                    this.recorridoRin();
+                    this.aceleracion();
+                }
+            }
+        }
+    },
+    recorridoRin() {
+        this.distanciaRin = this.tamanRin * 2 * Math.PI;
+        console.log(`La distancia que recorrer con el rin es: ${this.distanciaRin} Km`);
+    },
+    aceleracion() {
+        let n = 0;
+        let incremento = 0;
+        this.vel = Math.round(Math.random() * 20);
+        
+        while (this.estadoTanque >= 2 && this.vel != 0) {
+            if (n == 0) {
+                console.log(`el carro acelera: ${this.vel} `);
+            }
+            console.log(`la aceleracion del auto es : ${this.vel}
+            aumento: ${incremento}
+            Tanque bajo de nivel: ${this.estadoTanque}`);
+            n++;
+            incremento++;
+            this.estadoTanque--;
+            this.vel--;
+            console.log(`mensaje 2`);
+            console.log(`aceleracion: ${this.vel}
+            aumento: ${incremento}
+            Tanque bajo de nivel: ${this.estadoTanque}`);
+ 
+        }
+        console.log(`La distancia recorrida fue:
+         ${this.kmDistancia += parseInt((this.kmDistancia * this.distanciaRin)*this.vel)} KM`);
+        if (this.estadoTanque < 2) {
+            console.log(`el carro se apagado`);
+        }
     }
-   acumulado = acumulado + letRandom;
-   console.log('suma ' + acumulado);
 }
-
-
-
-console.log('+Bucle for:');
-let limifor= 30;
-
-
-for(let index = 0;index <   limifor ;index++){
-    let letRandomfor = Number.parseInt((Math.random() * 10),10);
-    console.log('indice for '+ index);
-    console.log('ramdom '+ letRandomfor);
-
-}
-
-
+carro.estadoTanque = 1;
+carro.encender();
