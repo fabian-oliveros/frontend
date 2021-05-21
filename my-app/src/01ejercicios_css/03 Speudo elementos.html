@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 Pseudo elementos</title>
+</head>
+
+<style>
+    h1 {
+        background-color: darkcyan;
+    }
+
+    p:first-child {
+        color: white;
+        background-color: darkgreen;
+    }
+
+    p:last-child {
+        background-color: darkgrey;
+    }
+
+    p:nth-child(4n + 3) {
+        background-color: rgb(0, 168, 65);
+        color:red ;
+    }
+
+    p:nth-child(8) {
+        background-color: rgb(0, 168, 65);
+        color:red ;
+    }
+
+
+
+    p:first-child::first-letter{
+        color:red ;
+        background-color: darkgrey;
+        font-size: xx-large;
+    }
+
+    p:nth-child(8)::first-letter{
+        color:red ;
+        background-color: rgb(197, 16, 16);
+        font-size: xx-large;
+
+    }
+    
+
+    p:nth-child(9)::first-letter{
+        color:rgb(47, 0, 255) ;
+        
+        background-color: rgb(43, 197, 16);
+        font-size: xx-large;
+
+    }
+    
+
+</style>
+
+<body>
+    <header>
+        <h1>Psudi-elementos</h1>
+    </header>
+    <div>
+        <p>aaaaaaaa</p>
+        <p>bbbbbbbb</p>
+        <p>cccccccc</p>
+        <p>🐼 Panda</p>
+        <p>🐷 Pig Face</p>
+        <p>🐅 Tiger</p>
+        <p>🦊 Fox</p>
+        <p>🐆 Leopard</p>
+        <p>🐈 Cat</p>
+        <p>🐱 Cat Face</p>
+        <p>🦁 Lion</p>
+        <p>🦓 Zebra</p>
+        <p>🐻 Bear</p>
+
+    </div>
+</body>
+
+</html>
